@@ -24,11 +24,19 @@ public:
 	virtual void Tick(float DeltaTime) override;
 
 	UPROPERTY(EditAnyWhere, Category = "Movement")
-	FVector velocity = FVector(500, 0, 0);
+	FVector movevelocity = FVector(500, 0, 0);
 
 	UPROPERTY(EditAnyWhere, Category = "Movement")
 	float moveDistance = 100;
 
+	UPROPERTY(EditAnyWhere, Category = "Rotation")
+	FRotator rotatevelocity = FRotator(0, 0, 0);
+
 private:
 	FVector startpos;
+
+private:
+	void MovePlatform(float deltatime);
+	void RotatePlatform(float deltatime);
+	inline bool ShouldPlatformReturn() const;
 };
